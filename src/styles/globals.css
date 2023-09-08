@@ -25,3 +25,11 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.user-chat {
+  @apply bg-black;
+}
+
+.assistance-chat {
+  @apply bg-slate-800;
+}
