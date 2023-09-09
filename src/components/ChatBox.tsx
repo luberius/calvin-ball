@@ -20,7 +20,7 @@ const ChatBox = () => {
         value={message}
       />
       <button
-        className="absolute bottom-3 right-4 bg-blue-600 p-1 rounded-md cursor-pointer hover:bg-blue-700 disabled:bg-gray-500 disabled:cursor-not-allowed"
+        className="absolute bottom-3 right-4 bg-blue-600 p-1 rounded-md cursor-pointer hover:bg-blue-700 disabled:bg-gray-700 disabled:cursor-not-allowed disabled:text-gray-500"
         disabled={!message}
       >
         <SendHorizontal />

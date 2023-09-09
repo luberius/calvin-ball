@@ -33,3 +33,11 @@ body {
 .assistance-chat {
   @apply bg-slate-800;
 }
+
+button {
+  transition: all ease 0.17s;
+}
+
+input {
+  transition: all ease 0.1s;
+}
