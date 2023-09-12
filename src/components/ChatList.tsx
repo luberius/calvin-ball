@@ -28,7 +28,7 @@ const ChatList: React.FC<IProps> = ({
     <div className="flex flex-col w-full" ref={listRef}>
       {messages.map((val, index) => (
         <div className={`${val.role}-chat py-8`} key={`${val.role}${index}`}>
-          <div className="w-full md:w-3/4 xl:w-1/2 m-auto flex gap-8">
+          <div className="w-full md:w-3/4 xl:w-1/2 px-6 md:p-0 m-auto flex gap-5 md:gap-8">
             {val.role === "user" && (
               <>
                 <div>
@@ -52,7 +52,7 @@ const ChatList: React.FC<IProps> = ({
       ))}
       {isLoading && !messageBuffer && (
         <div className={`assistance-chat py-8 buffer`}>
-          <div className="w-full md:w-3/4 xl:w-1/2 m-auto flex gap-8">
+          <div className="w-full md:w-3/4 xl:w-1/2 px-6 md:p-0 m-auto flex gap-5 md:gap-8">
             <div>
               <Bot />
             </div>
@@ -62,7 +62,7 @@ const ChatList: React.FC<IProps> = ({
       )}
       {isLoading && messageBuffer && (
         <div className={`assistance-chat py-8 buffer`}>
-          <div className="w-full md:w-3/4 xl:w-1/2 m-auto flex gap-8">
+          <div className="w-full md:w-3/4 xl:w-1/2 px-6 md:p-0 m-auto flex gap-5 md:gap-8">
             <div>
               <Bot />
             </div>
@@ -74,12 +74,12 @@ const ChatList: React.FC<IProps> = ({
       )}
       {!isLoading && error && (
         <div className={`assistance-chat py-8`}>
-          <div className="w-full md:w-3/4 xl:w-1/2 m-auto flex flex-col items-center gap-4">
-            <div className="flex gap-8 w-full">
+          <div className="w-full md:w-3/4 xl:w-1/2 m-auto flex flex-col gap-6 items-center">
+            <div className="flex gap-5 md:gap-8 px-6 md:p-0 w-full">
               <div className="text-red-400">
                 <Bot />
               </div>
-              <span className="text-red-400">{error}</span>
+              <p className="text-red-400 w-full">{error}</p>
             </div>
             {error && (
               <button
