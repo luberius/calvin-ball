@@ -29,7 +29,7 @@ const SettingDialog: React.FC<IProps> = ({ open, onClose }) => {
 
   useEffect(() => {
     if (key) setUserInput(key);
-  }, [key]);
+  }, [key, open]);
 
   if (!open) {
     return <></>;
@@ -43,6 +43,7 @@ const SettingDialog: React.FC<IProps> = ({ open, onClose }) => {
           <button
             className="bg-slate-700/50 p-1 rounded-md cursor-pointer hover:bg-slate-600 disabled:bg-gray-500 disabled:cursor-not-allowed text-gray-200"
             onClick={handleClose}
+            type="button"
           >
             <X />
           </button>

@@ -52,7 +52,6 @@ export const useGptStream = () => {
         message += response;
       }
 
-      // console.log(message);
       setMessages((prev) => [...prev, { role: "assistance", message }]);
       setIsLoading(false);
       setMessageBuffer("");
