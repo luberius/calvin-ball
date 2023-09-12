@@ -1,5 +1,6 @@
+import useSettingStore from "@/store/settingStore";
 import { X } from "lucide-react";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 interface IProps {
   open?: boolean;
@@ -8,6 +9,10 @@ interface IProps {
 
 const SettingDialog: React.FC<IProps> = ({ open, onClose }) => {
   const [userInput, setUserInput] = useState("");
+  const { key, setKey } = useSettingStore(({ key, setKey }) => ({
+    key,
+    setKey,
+  }));
 
   const handleClose = () => {
     onClose?.();
@@ -17,9 +22,14 @@ const SettingDialog: React.FC<IProps> = ({ open, onClose }) => {
     e.preventDefault();
     if (userInput.trim() === "") return;
 
+    setKey(userInput);
     setUserInput("");
     handleClose();
   };
+
+  useEffect(() => {
+    if (key) setUserInput(key);
+  }, [key]);
 
   if (!open) {
     return <></>;
