@@ -1,5 +1,6 @@
 import { IMessages } from "@/modules/Chat.types";
 import { Bot, RefreshCcw, User } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 
 interface IProps {
   messages: IMessages[];
@@ -18,20 +19,27 @@ const ChatList: React.FC<IProps> = ({
 }) => {
   return (
     <div className="flex flex-col w-full">
-      {messages.map((val) => (
-        <div className={`${val.role}-chat py-8`}>
+      {messages.map((val, index) => (
+        <div className={`${val.role}-chat py-8`} key={`${val.role}${index}`}>
           <div className="w-full md:w-3/4 xl:w-1/2 m-auto flex gap-8">
             {val.role === "user" && (
-              <div>
-                <User />
-              </div>
+              <>
+                <div>
+                  <User />
+                </div>
+                <p>{val.message}</p>
+              </>
             )}
             {val.role === "assistance" && (
-              <div>
-                <Bot />
-              </div>
+              <>
+                <div>
+                  <Bot />
+                </div>
+                <div className="message-content">
+                  <ReactMarkdown>{val.message}</ReactMarkdown>
+                </div>
+              </>
             )}
-            <span>{val.message}</span>
           </div>
         </div>
       ))}
@@ -51,7 +59,9 @@ const ChatList: React.FC<IProps> = ({
             <div>
               <Bot />
             </div>
-            <span>{messageBuffer}</span>
+            <div className="message-content">
+              <ReactMarkdown>{messageBuffer}</ReactMarkdown>
+            </div>
           </div>
         </div>
       )}

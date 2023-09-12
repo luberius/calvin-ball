@@ -48,12 +48,14 @@ export const useGptStream = () => {
       for await (const part of chatCompletionStream) {
         const response = part.choices[0]?.delta?.content || "";
 
-        setMessageBuffer(response);
-        message = response;
+        setMessageBuffer(message);
+        message += response;
       }
 
+      // console.log(message);
       setMessages((prev) => [...prev, { role: "assistance", message }]);
       setIsLoading(false);
+      setMessageBuffer("");
     } catch (err: any) {
       setError(err.message);
       setIsLoading(false);
