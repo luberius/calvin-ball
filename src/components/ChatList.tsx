@@ -1,5 +1,6 @@
 import { IMessages } from "@/modules/Chat.types";
 import { Bot, RefreshCcw, User } from "lucide-react";
+import { useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 
 interface IProps {
@@ -17,8 +18,14 @@ const ChatList: React.FC<IProps> = ({
   isLoading,
   onRetry,
 }) => {
+  const listRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, listRef.current?.scrollHeight || 0);
+  }, [messageBuffer, isLoading]);
+
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full" ref={listRef}>
       {messages.map((val, index) => (
         <div className={`${val.role}-chat py-8`} key={`${val.role}${index}`}>
           <div className="w-full md:w-3/4 xl:w-1/2 m-auto flex gap-8">
