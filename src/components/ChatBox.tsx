@@ -20,7 +20,7 @@ const ChatBox: React.FC<IProps> = ({ onSend }) => {
   };
 
   return (
-    <div className="absolute flex flex-col gap-4 px-4 bottom-8 m-auto w-full justify-end items-end md:w-3/4 xl:w-1/2">
+    <div className="fixed flex flex-col gap-4 px-4 bottom-8 m-auto w-full justify-end items-end md:w-3/4 xl:w-1/2">
       <div className="flex w-full p-4 bg-gray-800 rounded-xl border border-gray-900 items-end shadow-2xl">
         <textarea
           rows={1}
