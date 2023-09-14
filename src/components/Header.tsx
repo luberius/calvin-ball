@@ -13,6 +13,7 @@ const Header = () => {
       <button
         className="absolute right-4 bg-slate-800 p-1 rounded-md cursor-pointer hover:bg-slate-700 disabled:bg-gray-500 disabled:cursor-not-allowed"
         onClick={() => setOpenSettingDialog(true)}
+        data-test="setting-button"
       >
         <Settings2 className="text-gray-300" />
       </button>

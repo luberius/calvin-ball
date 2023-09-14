@@ -15,6 +15,7 @@ const SettingDialog: React.FC<IProps> = ({ open, onClose }) => {
   }));
 
   const handleClose = () => {
+    setUserInput("");
     onClose?.();
   };
 
@@ -44,6 +45,7 @@ const SettingDialog: React.FC<IProps> = ({ open, onClose }) => {
             className="bg-slate-700/50 p-1 rounded-md cursor-pointer hover:bg-slate-600 disabled:bg-gray-500 disabled:cursor-not-allowed text-gray-200"
             onClick={handleClose}
             type="button"
+            data-test="setting-close-button"
           >
             <X />
           </button>
@@ -55,10 +57,12 @@ const SettingDialog: React.FC<IProps> = ({ open, onClose }) => {
             placeholder="API Key here.."
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
+            data-test="input-key"
           />
           <button
             type="submit"
             className="bg-blue-700 text-sm text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+            data-test="setting-save-button"
           >
             Save
           </button>
