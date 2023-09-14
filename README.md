@@ -25,3 +25,29 @@ You can view your images created with `docker images`.
 ### Live demo
 
 You can try the live demo [here](https://calvin-ball.vercel.app)
+
+## Test
+
+After installing the dependencies you can run these command to start the cypress for automation testing
+
+### Using the UI
+
+```bash
+npm run cypress:open
+# or
+yarn cypress:open
+# or
+pnpm run cypress:open
+
+```
+
+### Via CLI
+
+```bash
+npm run cypress:run
+# or
+yarn cypress:run
+# or
+pnpm run cypress:run
+
+```
