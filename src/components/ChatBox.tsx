@@ -28,11 +28,13 @@ const ChatBox: React.FC<IProps> = ({ onSend }) => {
           placeholder="Send a message"
           onChange={handleTextareaChange}
           value={message}
+          data-test="chat-input-box"
         />
         <button
           className="absolute bottom-3 right-8 bg-blue-600 p-1 rounded-md cursor-pointer hover:bg-blue-700 disabled:bg-gray-700 disabled:cursor-not-allowed disabled:text-gray-500"
           disabled={!message}
           onClick={handleSend}
+          data-test="chat-send-button"
         >
           <SendHorizontal />
         </button>

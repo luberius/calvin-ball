@@ -25,7 +25,11 @@ const ChatList: React.FC<IProps> = ({
   }, [messageBuffer, isLoading]);
 
   return (
-    <div className="flex flex-col w-full" ref={listRef}>
+    <div
+      className="flex flex-col w-full"
+      ref={listRef}
+      data-test="chat-list-container"
+    >
       {messages.map((val, index) => (
         <div className={`${val.role}-chat py-8`} key={`${val.role}${index}`}>
           <div className="w-full md:w-3/4 xl:w-1/2 px-6 md:p-0 m-auto flex gap-5 md:gap-8">

@@ -18,12 +18,6 @@ export const useGptStream = () => {
   const fetchMessage = async (prompt: string, retry = false) => {
     setError("");
 
-    if (!key) {
-      setIsLoading(false);
-      setError("Key is empty");
-      return;
-    }
-
     if (!prompt) {
       setIsLoading(false);
       setError("Promt is empty");
@@ -32,6 +26,12 @@ export const useGptStream = () => {
 
     if (!retry) {
       setMessages((prev) => [...prev, { role: "user", message: prompt }]);
+    }
+
+    if (!key) {
+      setIsLoading(false);
+      setError("Key is empty");
+      return;
     }
 
     setIsLoading(true);
